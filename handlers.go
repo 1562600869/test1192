@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -31,6 +32,11 @@ func isValidOwner(o string) bool {
 		}
 	}
 	return false
+}
+
+func isValidMonth(month string) bool {
+	matched, _ := regexp.MatchString(`^\d{4}-(0[1-9]|1[0-2])$`, month)
+	return matched
 }
 
 func joinTypes(types []string) string {
@@ -113,7 +119,10 @@ func HandleReturn(data *DataStore, id, date string) error {
 	return nil
 }
 
-func HandleMonthly(data *DataStore, month string) {
+func HandleMonthly(data *DataStore, month string) error {
+	if !isValidMonth(month) {
+		return fmt.Errorf("月份格式无效，应为 YYYY-MM，例如 2024-03")
+	}
 	var fillCount, lendCount int
 	for _, r := range data.FillRecords {
 		if len(r.Date) >= 7 && r.Date[:7] == month {
@@ -126,6 +135,7 @@ func HandleMonthly(data *DataStore, month string) {
 		}
 	}
 	fmt.Printf("月份: %s\n充装次数: %d\n借出次数: %d\n", month, fillCount, lendCount)
+	return nil
 }
 
 func HandleStatus(data *DataStore) {

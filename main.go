@@ -88,7 +88,7 @@ func main() {
 
 	case "monthly":
 		flags, _ := parseFlags(os.Args[2:])
-		HandleMonthly(data, flags["month"])
+		err = HandleMonthly(data, flags["month"])
 		needSave = false
 
 	case "status":
