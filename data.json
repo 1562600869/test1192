@@ -1,0 +1,52 @@
+{
+  "cylinders": [
+    {
+      "id": "C001",
+      "type": "5kg",
+      "owner": "自有",
+      "status": "满瓶",
+      "created_at": "2026-06-20"
+    }
+  ],
+  "fill_records": [
+    {
+      "cylinder_id": "C001",
+      "date": "2024-03-20",
+      "operator": "李师傅"
+    },
+    {
+      "cylinder_id": "C001",
+      "date": "2024-03-21",
+      "operator": "王师傅"
+    },
+    {
+      "cylinder_id": "C001",
+      "date": "2024-03-22",
+      "operator": "王师傅"
+    }
+  ],
+  "lend_records": [
+    {
+      "cylinder_id": "C001",
+      "customer": "张先生",
+      "phone": "138xxxx",
+      "date": "2024-03-20"
+    },
+    {
+      "cylinder_id": "C001",
+      "customer": "李女士",
+      "phone": "139xxxx",
+      "date": "2024-03-21"
+    }
+  ],
+  "return_records": [
+    {
+      "cylinder_id": "C001",
+      "date": "2024-03-20"
+    },
+    {
+      "cylinder_id": "C001",
+      "date": "2024-03-22"
+    }
+  ]
+}
